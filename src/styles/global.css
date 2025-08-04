@@ -1,0 +1,43 @@
+/* Global reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile smooth scrolling for one-by-one card viewing */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Legacy class names for backward compatibility */
+.main-title {
+  /* This class is handled by component-specific CSS */
+}
+
+.card-container {
+  /* This class is handled by component-specific CSS */
+}
+
+.card-emoji {
+  /* This class is handled by component-specific CSS */
+}
+
+.card-title {
+  /* This class is handled by component-specific CSS */
+}
+
+.card-description {
+  /* This class is handled by component-specific CSS */
+}
+
+.scroll-indicator {
+  /* This class is handled by component-specific CSS */
+} 

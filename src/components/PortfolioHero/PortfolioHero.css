@@ -1,0 +1,94 @@
+.portfolio-hero {
+  height: 300vh;
+  width: 100vw;
+  padding: 32px;
+  background: rgb(
+    calc(250 + (255 - 250) * var(--background-transition, 0)),
+    calc(251 + (255 - 251) * var(--background-transition, 0)),
+    calc(252 + (255 - 252) * var(--background-transition, 0))
+  );
+  position: relative;
+  touch-action: pan-y; /* Enable smooth scrolling on mobile */
+  box-sizing: border-box; /* Ensure padding doesn't add to total size */
+}
+
+/* DIA browser-inspired subtle side gradients */
+.portfolio-hero::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.02) 0%,
+    rgba(168, 85, 247, 0.015) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: subtle-pulse-left 8s ease-in-out infinite;
+}
+
+.portfolio-hero::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 100vh;
+  background: linear-gradient(
+    270deg,
+    rgba(59, 130, 246, 0.02) 0%,
+    rgba(124, 58, 237, 0.015) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: subtle-pulse-right 8s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse-left {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes subtle-pulse-right {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .portfolio-hero {
+    height: 300vh; /* Standard height for mobile */
+    padding: 24px;
+  }
+
+  .portfolio-hero::before,
+  .portfolio-hero::after {
+    width: 60px; /* Narrower gradients on mobile */
+    z-index: 1; /* Ensure gradients are above content */
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-hero {
+    height: 700vh; /* Even more height for smaller screens */
+    padding: 16px;
+  }
+
+  .portfolio-hero::before,
+  .portfolio-hero::after {
+    width: 60px; /* Even narrower gradients on small mobile */
+  }
+} 

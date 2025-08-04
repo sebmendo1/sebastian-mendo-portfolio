@@ -1,0 +1,152 @@
+/* Analytics-specific Card Styles */
+.analytics-card {
+  background-color: #EBF2FD;
+}
+
+/* Analytics-specific Colors */
+.analytics-title {
+  color: #553C9A;
+}
+
+.analytics-description {
+  color: #553C9A;
+}
+
+.analytics-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.trend-indicator {
+  font-size: 1rem;
+}
+
+.analytics-chart {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #553C9A;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.chart-period {
+  font-size: 0.7rem;
+  color: #553C9A;
+  opacity: 0.6;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 40px;
+  gap: 4px;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, #7C3AED 0%, #8B5CF6 100%);
+  border-radius: 2px 2px 0 0;
+  min-height: 8px;
+  transition: all 0.3s ease;
+  animation: grow 1.5s ease-out forwards;
+}
+
+@keyframes grow {
+  from {
+    height: 0;
+  }
+}
+
+.bar:hover {
+  background: linear-gradient(180deg, #6D28D9 0%, #7C3AED 100%);
+}
+
+.analytics-tag {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7C3AED;
+}
+
+.data-points {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #7C3AED;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.data-label {
+  font-size: 0.7rem;
+  color: #553C9A;
+  opacity: 0.6;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.view-insights {
+  color: #7C3AED;
+}
+
+.view-insights:hover {
+  color: #6D28D9;
+}
+
+/* Mobile responsiveness for Analytics-specific elements */
+@media (max-width: 768px) {
+  .analytics-chart {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .chart-bars {
+    height: 30px;
+  }
+  
+  .data-value {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-bars {
+    height: 25px;
+  }
+  
+  .analytics-footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+} 
+
+.logo-image {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}

@@ -1,0 +1,173 @@
+/* Base Card Wrapper Styles */
+.card-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(var(--card-x, 0), var(--card-y, 0));
+  opacity: var(--card-opacity, 1);
+  scale: var(--card-scale, 1);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+/* Base Card Styles */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease;
+}
+
+.card-link:active {
+  transform: scale(0.98);
+}
+
+.base-card {
+  width: calc(50vw - 12px);
+  height: calc(50vh - 12px);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.base-card:hover {
+  transform: translate(-50%, -50%) translateY(-4px);
+}
+
+/* Base Header Styles */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.card-logo {
+  display: flex;
+  align-items: center;
+}
+
+.card-logo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.logo-video {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* Base Content Styles */
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.2;
+}
+
+.card-description {
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  transform: translateX(4px);
+}
+
+/* Mobile responsiveness - Hide original desktop cards on mobile */
+@media (max-width: 768px) {
+  .card-wrapper:not(.portfolio-grid-mobile .card-wrapper) {
+    display: none; /* Hide desktop cards on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .base-card {
+    width: calc(92vw);
+    height: 90vh;
+    padding: 24px;
+    border-radius: 12px;
+  }
+  
+  .logo-image {
+    height: 56px;
+  }
+
+  .logo-video {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 1200px) {
+  .base-card {
+    padding: 50px;
+  }
+  
+  .logo-image {
+    height: 80px;
+  }
+} 

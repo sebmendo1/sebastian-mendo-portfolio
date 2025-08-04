@@ -1,0 +1,73 @@
+.typewriter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.typewriter-content {
+  pointer-events: auto;
+}
+
+.typewriter-text-wrapper {
+  position: relative;
+}
+
+.typewriter-title {
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 0;
+  color: #4F46E5;
+  font-family: 'DM Serif Display', Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.typewriter-text {
+  display: inline-block;
+}
+
+.typewriter-cursor {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #4F46E5;
+  animation: typewriter-blink 1s infinite;
+}
+
+@keyframes typewriter-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .typewriter-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .typewriter-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .typewriter-title {
+    font-size: 5rem;
+  }
+} 

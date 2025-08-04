@@ -1,0 +1,46 @@
+.top-logo {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.top-logo-image {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .top-logo {
+    top: 24px;
+  }
+  
+  .top-logo-image {
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-logo {
+    top: 20px;
+  }
+  
+  .top-logo-image {
+    height: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .top-logo {
+    top: 40px;
+  }
+  
+  .top-logo-image {
+    height: 72px;
+  }
+} 
