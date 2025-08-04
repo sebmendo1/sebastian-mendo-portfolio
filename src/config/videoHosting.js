@@ -4,8 +4,8 @@
 // Option 1: Cloudinary (Recommended - Free tier: 25GB storage, 25GB bandwidth)
 // Sign up at: https://cloudinary.com
 export const CLOUDINARY_CONFIG = {
-  cloudName: 'your-cloud-name', // Replace with your Cloudinary cloud name
-  uploadPreset: 'your-upload-preset', // Replace with your upload preset
+  cloudName: 'dbfzh2zhf', // Your Cloudinary cloud name
+  uploadPreset: 'your-upload-preset', // Replace with your upload preset if needed
   apiKey: process.env.REACT_APP_CLOUDINARY_API_KEY,
   apiSecret: process.env.REACT_APP_CLOUDINARY_API_SECRET
 };
@@ -22,17 +22,12 @@ export const VERCEL_BLOB_CONFIG = {
   token: process.env.BLOB_READ_WRITE_TOKEN
 };
 
-// Video URLs - Update these with your hosted video URLs
+// Video URLs - Updated with your hosted video URLs
 export const VIDEO_URLS = {
-  // Cloudinary URLs (auto-optimized)
-  salesforce: 'https://res.cloudinary.com/your-cloud-name/video/upload/v1/salesforce-demo',
-  writer: 'https://res.cloudinary.com/your-cloud-name/video/upload/v1/writer-demo',
-  chase: 'https://res.cloudinary.com/your-cloud-name/video/upload/v1/chase-demo',
-  
-  // Alternative: Direct CDN URLs
-  // salesforce: 'https://your-cdn.com/videos/salesforce-demo.mp4',
-  // writer: 'https://your-cdn.com/videos/writer-demo.mp4',
-  // chase: 'https://your-cdn.com/videos/chase-demo.mp4',
+  // Cloudinary URLs (your actual videos)
+  salesforce: 'https://res.cloudinary.com/dbfzh2zhf/video/upload/v1754275184/Salesforce_-_Contact_Support_-_Portfolio_iomrfl.mov',
+  writer: 'https://res.cloudinary.com/dbfzh2zhf/video/upload/v1754275274/WRITER_dky40b.mp4',
+  chase: 'https://res.cloudinary.com/dbfzh2zhf/video/upload/v1754275263/Chase-HELOC_rx9uak.mp4',
   
   // Fallback to local (for development only)
   salesforceFallback: '/video/Salesforce - Contact Support - Portfolio.mp4',
@@ -71,8 +66,16 @@ export const getVideoUrl = (videoKey, isMobile = false) => {
   // If using Cloudinary, add optimization parameters
   if (baseUrl.includes('cloudinary.com')) {
     const settings = isMobile ? VIDEO_SETTINGS.mobile : VIDEO_SETTINGS;
-    const transformations = `q_${settings.quality},f_${VIDEO_SETTINGS.format},w_${settings.width},br_${settings.bitRate}`;
-    return baseUrl.replace('/upload/', `/upload/${transformations}/`);
+    const transformations = `q_${settings.quality},f_${VIDEO_SETTINGS.format},w_${settings.width}`;
+    
+    // Handle existing Cloudinary URLs with version numbers
+    if (baseUrl.includes('/upload/v')) {
+      // Insert transformations after /upload/
+      return baseUrl.replace('/upload/', `/upload/${transformations}/`);
+    } else {
+      // Handle URLs without version (fallback)
+      return baseUrl.replace('/upload/', `/upload/${transformations}/`);
+    }
   }
   
   return baseUrl;
@@ -80,4 +83,4 @@ export const getVideoUrl = (videoKey, isMobile = false) => {
 
 // Environment check
 export const isDevelopment = process.env.NODE_ENV === 'development';
-export const useLocalVideos = isDevelopment && process.env.REACT_APP_USE_LOCAL_VIDEOS === 'true'; 
+export const useLocalVideos = process.env.REACT_APP_USE_LOCAL_VIDEOS === 'true'; 
